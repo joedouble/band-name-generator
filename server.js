@@ -6,32 +6,61 @@ app.listen(port, function(){
   console.log('Server started on port ' + port);
 });
 
-app.get("/", function(req, res) {
-  res.send("Hello Universe!");
+var adjectives = [
+  "Beautiful",
+  "Creamy",
+  "Green",
+  "Slimey",
+  "Sick",
+  "Adorable",
+  "Bumpy",
+  "Purple",
+  "Flavorful",
+  "Mega"
+]
+
+app.get("/adjectives", function(req, res){
+  var randomIndex = Math.floor(Math.random() * adjectives.length);
+  res.json({ word : adjectives[randomIndex] });
+})
+
+var verbs = [
+  "Prevent",
+  "Knot",
+  "Pour",
+  "Smile",
+  "Blush",
+  "Complain",
+  "Identify",
+  "Search",
+  "Bang",
+  "Scratch"
+]
+
+app.get("/verbs", function(req, res){
+  var randomIndex = Math.floor(Math.random() * verbs.length);
+  res.json({ word : verbs[randomIndex] });
+})
+var nouns = [
+  "Burn",
+  "Carpenter",
+  "Goldfish",
+  "Grandmother",
+  "Nurse",
+  "Comic",
+  "Game",
+  "Toilet",
+  "Bacon",
+  "Eyelash"
+]
+
+app.get("/nouns", function(req, res){
+  var randomIndex = Math.floor(Math.random() * nouns.length);
+  res.json({ word : nouns[randomIndex] });
+})
+
+app.get("/", function (req, res) {
+  res.sendFile(__dirname + "/app/index.html");
 });
 
-var quotes = [
-  '"I have not failed.  I\'ve just found 10,000 ways that won\'t work." - Thomas Edison.',
-  '"No matter where you go, there you are."',
-  '"If it is a good idea, go ahead and do it.  It is much easier to apologize than to get permission." - Rear Admiral Grace Hopper, USN, Ph.D'
-];
-
-app.get("/quotes", function (req, res){
-  var randomIndex = Math.floor(Math.random() * quotes.length);
-  res.send(quotes[randomIndex]);
-});
-
-var jokes = [
-  { setup: "What's the difference between a guitar and a fish?",
-    punchline: "You can't tuna fish." },
-  { setup: "What do you get when you cross a cow and a duck?",
-    punchline: "Milk and quackers." },
-  { setup: "How many tickles does it take to make an octopus laugh?",
-    punchline: "Ten Tickles" }
-];
-
-app.get("/jokes", function(req, res) {
-  var randomIndex = Math.floor(Math.random() * jokes.length);
-  res.json(jokes[randomIndex]);
-});
-
+app.use(express.static(__dirname + "/app/"));
