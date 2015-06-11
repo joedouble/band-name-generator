@@ -1,23 +1,23 @@
 $(function(){
   $("#adjButton").on("click", function(){
-    $.get("/adjectives", function(adjdata) {
-    $("#adjectives").html(adjdata.word);
+    $.get("/adjectives", function(data) {
+    $("#adjectives").html(data.word);
     });
   })
 });
 
 $(function(){
   $("#verbButton").on("click", function(){
-    $.get("/verbs", function(verbdata) {
-    $("#verbs").html(verbdata.word);
+    $.get("/verbs", function(data) {
+    $("#verbs").html(data.word);
    });
   })
 });
 
 $(function(){
   $("#nounButton").on("click", function(){
-    $.get("/nouns", function(noundata) {
-    $("#nouns").html(noundata.word);
+    $.get("/nouns", function(data) {
+    $("#nouns").html(data.word);
     });
   })
 });
