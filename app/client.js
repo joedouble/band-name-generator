@@ -6,7 +6,6 @@ $(function(){
 
   $("#submitAdj").on("submit", function(e){
     e.preventDefault();
-
     var adjectives = $("input[name=adjective").val();
     var adjPost;
     if (adjectives) {
@@ -16,6 +15,7 @@ $(function(){
         $("#adjectiveRes").text(adjectiveRes);
       });
     }
+    $("form").trigger("reset");
   });
 
   $("#submitVerb").on("submit", function(e){
@@ -24,12 +24,12 @@ $(function(){
     var verbPost;
     if (verbs) {
       verbPost = {word : verbs};
-      console.log(verbPost)
       $.post("verbs", verbPost, function(response){
         var verbRes = response.msg;
         $("#verbRes").text(verbRes);
       });
     }
+    $("form").trigger("reset");
   });
 
   $("#submitNoun").on("submit", function(e){
@@ -38,12 +38,12 @@ $(function(){
     var nounPost;
     if (nouns) {
       nounPost = {word : nouns};
-      console.log(nounPost)
       $.post("nouns", nounPost, function(response){
         var nounRes = response.msg;
         $("#nounRes").text(nounRes);
       });
     }
+    $("form").trigger("reset");
   });
 
   $("#bandNameButton").on("click", function(){
@@ -56,5 +56,6 @@ $(function(){
     $.get("/nouns", function(data) {
     $("#noun").html(data.word);
     });
+    $('#bandName').css('textTransform', 'capitalize');
   })
 });
