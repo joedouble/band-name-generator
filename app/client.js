@@ -64,6 +64,6 @@ $(function() {
       $('#noun').html(data.word);
     });
 
-    $('#bandName').css('textTransform', 'capitalize');
+    $('span').css('textTransform', 'capitalize');
   });
 });
