@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <link href='//fonts.googleapis.com/css?family=Economica:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Band Name Generator</title>
+  </head>
+  <body>
+    <h1>Get your band name here!</h1>
+    <button id="bandNameButton">Click to get your super awesome band name.</button>
+    <p>Here's your band name:
+      <b><span id="adjective"></span>
+      <span id="verb"></span>
+      <span id="noun"></span></b>
+    </p>
+    <h2>Submit Words!</h2>
+    <p>
+      Filling in the fields below will add additional adjectives, verbs, and nouns to
+      <b>Band Name Generator</b>.
+    </p>
+
+    <form id="submitAdj">
+      <label for"user-adjective">Enter an Adjective: </label>
+      <input type="text" name="adjective" id="user-adjective">
+      <input type="submit" value="Send Your Adjective to the List!">
+    </form>
+    <p id="adjectiveRes"></p>
+
+    <form id="submitVerb">
+      <label for="user-verb">Enter a Verb: </label>
+      <input type="text" name="verb" id="user-verb">
+      <input type="submit" value="Send Your Verb to the List!">
+    </form>
+    <p id="verbRes"></p>
+
+    <form id="submitNoun">
+      <label for="user-noun">Add an Noun: </label>
+      <input type="text" name="noun" id="user-noun">
+      <input type="submit" value="Send your Noun to the List!">
+    </form>
+    <p id="nounRes"></p>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="client.js"></script>
+  </body>
+</html>
